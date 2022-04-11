@@ -3,8 +3,9 @@
   border: 1px solid #aaaaaa;
   box-sizing: border-box;
   border-radius: 10px;
+  min-height: 130px;
+  padding: 24px;
 
-  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;

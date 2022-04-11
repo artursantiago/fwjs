@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-import "./Container.css";
 import { TabContent } from "./TabContent";
 import { Tab } from "./Tab";
+
+import "./Container.css";
 
 interface ITab {
   title: string;
@@ -15,7 +16,7 @@ const tabs = [
     content: "Texto do primeiro tab",
   },
   {
-    title: "tab 3",
+    title: "tab 2",
     content: "Texto do segundo tab",
   },
   {
@@ -36,18 +37,20 @@ export function Container() {
   }
 
   return (
-    <>
-      {tabs.map((tab, index) => (
-        <Tab
-          key={tab.title}
-          index={index}
-          title={tab.title}
-          selected={selectedTab?.title === tab.title}
-          onClick={handleClick}
-        />
-      ))}
+    <div className="Container">
+      <nav className="TabList">
+        {tabs.map((tab, index) => (
+          <Tab
+            key={tab.title}
+            index={index}
+            title={tab.title}
+            selected={selectedTab?.title === tab.title}
+            onClick={handleClick}
+          />
+        ))}
+      </nav>
 
       <TabContent content={selectedTab?.content} />
-    </>
+    </div>
   );
 }
