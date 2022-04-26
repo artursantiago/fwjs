@@ -1,12 +1,10 @@
 <script lang="ts">
+	import Container from './components/Container.svelte'
 </script>
 
 <main>
-	<h1>Olá mundo!</h1>
+	<Container />
 </main>
 
 <style>
-	main {
-		text-align: center;
-	}
 </style>

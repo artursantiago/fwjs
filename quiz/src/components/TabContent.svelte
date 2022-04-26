@@ -1,0 +1,20 @@
+<script lang="ts">
+  export let content: string = "Selecione uma tab...";
+</script>
+
+    <p class="TabContent">{content}</p>
+
+<style>
+      .TabContent {
+        background: #f0f0f0;
+        border: 1px solid #aaaaaa;
+        box-sizing: border-box;
+        border-radius: 10px;
+        min-height: 130px;
+        padding: 24px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+      }
+</style>
