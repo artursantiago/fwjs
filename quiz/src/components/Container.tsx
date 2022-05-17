@@ -10,7 +10,7 @@ interface ITab {
   content: string;
 }
 
-const tabs = [
+const initalTabsValue = [
   {
     title: "tab 1",
     content: "Texto do primeiro tab",
@@ -29,17 +29,21 @@ const tabs = [
   },
 ];
 
-export function Container() {
+interface IContainer {
+  tabs?: ITab[];
+}
+
+export function Container({ tabs: tabsProps = initalTabsValue }: IContainer) {
   const [selectedTab, setSelectedTab] = useState<ITab>();
 
   function handleClick(index: number) {
-    setSelectedTab(tabs.at(index));
+    setSelectedTab(tabsProps.at(index));
   }
 
   return (
     <div className="Container">
       <nav className="TabList">
-        {tabs.map((tab, index) => (
+        {tabsProps.map((tab, index) => (
           <Tab
             key={tab.title}
             index={index}
