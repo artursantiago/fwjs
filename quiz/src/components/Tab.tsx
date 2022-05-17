@@ -4,11 +4,18 @@ interface TabProps {
   index: number;
   selected?: boolean;
   title: string;
+  variant?: "contained" | "outlined";
   onClick: (index: number) => void;
 }
 
-export function Tab({ index, selected, title, onClick }: TabProps) {
-  const classNames = `Tab ${selected ? "selected" : ""}`;
+export function Tab({
+  index,
+  selected,
+  title,
+  onClick,
+  variant = "contained",
+}: TabProps) {
+  const classNames = `Tab ${selected ? "selected" : ""} ${variant}`;
 
   return (
     <button className={classNames} type="button" onClick={() => onClick(index)}>
