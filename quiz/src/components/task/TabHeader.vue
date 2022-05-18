@@ -6,20 +6,26 @@
 
 <script setup lang="ts">
 import { reactive, ref, computed } from "vue";
-const props = defineProps<{
-  title: string;
-  selected: boolean;
-}>();
+const props =
+  defineProps<{
+    title?: string;
+    selected?: boolean;
+    variant?: "contained" | "outlined";
+  }>();
 
 const customClass = computed(
-  () => `TabHeader ${props.selected ? "selected" : ""}`
+  () =>
+    `TabHeader ${props.selected ? "selected" : ""} ${
+      props.variant || "contained"
+    }`
 );
 
-const emit = defineEmits<{
-  onSelect: (title: string) => void;
-}>();
+const emit =
+  defineEmits<{
+    onSelect: (title: string) => void;
+  }>();
 
-function select(title: string) {
+function select(title?: string) {
   emit("onSelect", title);
 }
 </script>
@@ -44,5 +50,15 @@ function select(title: string) {
 .TabHeader.selected {
   background: #aaaaaa;
   font-weight: 700;
+}
+
+.TabHeader.outlined {
+  background: transparent;
+  border: 1px solid #777777;
+}
+
+.TabHeader.outlined.selected {
+  background: transparent;
+  border-width: 2px;
 }
 </style>

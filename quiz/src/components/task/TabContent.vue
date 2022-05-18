@@ -1,11 +1,19 @@
 <template>
-  <p class="TabContent">{{ content || DEFAULT_CONTENT }}</p>
+  <p :class="customClass">{{ content || DEFAULT_CONTENT }}</p>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  content?: string;
-}>();
+import { computed } from "vue";
+
+const props =
+  defineProps<{
+    content?: string;
+    variant?: "contained" | "outlined";
+  }>();
+
+const customClass = computed(
+  () => `TabContent ${props.variant || "contained"}`
+);
 
 const DEFAULT_CONTENT = "Selecione uma tab...";
 </script>
@@ -23,5 +31,10 @@ const DEFAULT_CONTENT = "Selecione uma tab...";
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
+}
+
+.TabContent.outlined {
+  background: transparent;
+  border: 1px solid #aaaaaa;
 }
 </style>

@@ -2,31 +2,42 @@
   <div class="Container">
     <div class="TabList">
       <TabHeader
-        v-for="(tab, index) in tabs"
+        v-for="(tab, index) in tabsWithDefault"
         :key="index"
         :title="tab.title"
-        :selected="state?.selectedTab?.title === tab.title"
+        :variant="tab.variant"
+        :selected="state.selectedTab.title === tab.title"
         @onSelect="select"
       />
     </div>
-    <TabContent :content="state?.selectedTab?.content" />
+    <TabContent
+      :content="state.selectedTab.content"
+      :variant="state.selectedTab.variant"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, computed } from "vue";
+import { reactive } from "vue";
 import TabContent from "./TabContent.vue";
 import TabHeader from "./TabHeader.vue";
 
 type Tab = {
   title: string;
   content: string;
+  variant?: "contained" | "outlined";
 };
 
-const tabs: Tab[] = [
+const props =
+  defineProps<{
+    tabs?: Tab[];
+  }>();
+
+const initialTabsValue: Tab[] = [
   {
     title: "tab 1",
     content: "Conteúdo da tab 1",
+    variant: "outlined",
   },
   {
     title: "tab 2",
@@ -42,13 +53,21 @@ const tabs: Tab[] = [
   },
 ];
 
-const state = reactive({
-  selectedTab: {},
+const tabsWithDefault = props.tabs || initialTabsValue;
+
+const state: { selectedTab: Tab } = reactive({
+  selectedTab: {
+    content: "",
+    title: "",
+  },
 });
 
 function select(title: string) {
-  const newSelectedTab = tabs.find((tab) => title === tab.title) || {};
-  state.selectedTab = newSelectedTab;
+  const newSelectedTab = tabsWithDefault.find((tab) => title === tab.title);
+  state.selectedTab = newSelectedTab || {
+    content: "",
+    title: "",
+  };
 }
 </script>
 
