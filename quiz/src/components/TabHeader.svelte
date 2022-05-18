@@ -3,6 +3,7 @@
 
   export let title: string;
   export let selected: boolean;
+  export let variant: 'contained' | 'outlined' = "contained";
 
 const dispatcher = createEventDispatcher<{selection: string}>()
 
@@ -13,7 +14,7 @@ function onClick() {
 
     <button
       type="button"
-      class="TabHeader"
+      class={`TabHeader ${variant}`}
       class:selected={selected}
       on:click={onClick}
     >
@@ -40,4 +41,14 @@ function onClick() {
         background: #aaaaaa;
         font-weight: 700;
       }
+
+      .TabHeader.outlined {
+  background: transparent;
+  border: 1px solid #777777;
+}
+
+.TabHeader.outlined.selected {
+  background: transparent;
+  border-width: 2px;
+}
 </style>
