@@ -1,0 +1,795 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-52479cf88fb69eea6d286e7e9ed37d8da390c32a2eb3bf2bdbb34ef3cf0530d4d050f074b8f47d5cde38c1cada0879a3a71e2a602141526c35d16ca5a079d72b",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<app-container></app-container>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from \"@angular/core\";\n\n@Component({\n  selector: \"app-root\",\n  template: `<app-container></app-container>`\n})\nexport class AppComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "ContainerComponent",
+            "id": "component-ContainerComponent-8ec32988979d431b8270bbc03057e6843468e92106ed12fa5fda9f86d4128e0db8b7811df14799324bf21c6ebe701f5e30ac9e46f2adc1f8a32345e56a36d8d2",
+            "file": "src/app/components/container.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-container",
+            "styleUrls": [],
+            "styles": [
+                "\n      .Container {\n        max-width: 514px;\n        min-width: 430px;\n        width: 100%;\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n      }\n      .TabList {\n        display: flex;\n        justify-content: space-between;\n      }\n    "
+            ],
+            "template": "<div class=\"Container\">\n  <div class=\"TabList\">\n    <app-tab-header\n      *ngFor=\"let tab of tabs; let i = index\"\n      [title]=\"tab?.title\"\n      [variant]=\"tab?.variant\"\n      [selected]=\"selectedTab?.title === tab?.title\"\n      (onSelection)=\"select($event)\"\n    ></app-tab-header>\n  </div>\n  <app-tab-content\n    [content]=\"selectedTab?.content\"\n    [variant]=\"selectedTab?.variant\"\n  >\n  </app-tab-content>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "tabs",
+                    "defaultValue": "[\r\n    {\r\n      title: 'tab 1',\r\n      content: 'Conteúdo da tab 1',\r\n    },\r\n    {\r\n      title: 'tab 2',\r\n      content: 'Conteúdo da tab 2',\r\n    },\r\n    {\r\n      title: 'tab 3',\r\n      content: 'Conteúdo da tab 3',\r\n    },\r\n    {\r\n      title: 'tab 4',\r\n      content: 'Conteúdo da tab 4',\r\n    },\r\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 48,
+                    "type": "Tab[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "selectedTab",
+                    "defaultValue": "undefined",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Tab | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 67
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "select",
+                    "args": [
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 69,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\ntype Tab = {\r\n  title: string;\r\n  content: string;\r\n  variant?: 'contained' | 'outlined';\r\n};\r\n\r\n@Component({\r\n  selector: 'app-container',\r\n  template: `\r\n    <div class=\"Container\">\r\n      <div class=\"TabList\">\r\n        <app-tab-header\r\n          *ngFor=\"let tab of tabs; let i = index\"\r\n          [title]=\"tab?.title\"\r\n          [variant]=\"tab?.variant\"\r\n          [selected]=\"selectedTab?.title === tab?.title\"\r\n          (onSelection)=\"select($event)\"\r\n        ></app-tab-header>\r\n      </div>\r\n      <app-tab-content\r\n        [content]=\"selectedTab?.content\"\r\n        [variant]=\"selectedTab?.variant\"\r\n      >\r\n      </app-tab-content>\r\n    </div>\r\n  `,\r\n  styles: [\r\n    `\r\n      .Container {\r\n        max-width: 514px;\r\n        min-width: 430px;\r\n        width: 100%;\r\n        position: absolute;\r\n        top: 50%;\r\n        left: 50%;\r\n        transform: translate(-50%, -50%);\r\n      }\r\n      .TabList {\r\n        display: flex;\r\n        justify-content: space-between;\r\n      }\r\n    `,\r\n  ],\r\n})\r\nexport class ContainerComponent {\r\n  @Input() tabs: Tab[] = [\r\n    {\r\n      title: 'tab 1',\r\n      content: 'Conteúdo da tab 1',\r\n    },\r\n    {\r\n      title: 'tab 2',\r\n      content: 'Conteúdo da tab 2',\r\n    },\r\n    {\r\n      title: 'tab 3',\r\n      content: 'Conteúdo da tab 3',\r\n    },\r\n    {\r\n      title: 'tab 4',\r\n      content: 'Conteúdo da tab 4',\r\n    },\r\n  ];\r\n\r\n  selectedTab: Tab | undefined = undefined;\r\n\r\n  select(title: string) {\r\n    const newSelectedTab = this.tabs.find((tab) => title === tab.title);\r\n    this.selectedTab = newSelectedTab;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .Container {\n        max-width: 514px;\n        min-width: 430px;\n        width: 100%;\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        transform: translate(-50%, -50%);\n      }\n      .TabList {\n        display: flex;\n        justify-content: space-between;\n      }\n    \n"
+        },
+        {
+            "name": "TabContentComponent",
+            "id": "component-TabContentComponent-29833718863092d5a27842ca5459201b4f67d4b7af4a2a5fae23eb6ad9153092af58dbdb2ca5991b632beabced13cc85db35326e07b9ef619f579e05f3d2cc75",
+            "file": "src/app/components/tab-content.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tab-content",
+            "styleUrls": [],
+            "styles": [
+                "\n      .TabContent {\n        background: #f0f0f0;\n        border: 1px solid #aaaaaa;\n        box-sizing: border-box;\n        border-radius: 10px;\n        min-height: 130px;\n        padding: 24px;\n        font-style: normal;\n        font-weight: 400;\n        font-size: 20px;\n        line-height: 24px;\n      }\n\n      .TabContent.outlined {\n        background: transparent;\n        border: 1px solid #aaaaaa;\n      }\n    "
+            ],
+            "template": "<p\n  [ngClass]=\"{\n    TabContent: true,\n    contained: variant !== 'outlined',\n    outlined: variant === 'outlined'\n  }\"\n>\n  {{ content || DEFAULT_CONTENT }}\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "content",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'contained'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "\"contained\" | \"outlined\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "DEFAULT_CONTENT",
+                    "defaultValue": "'Selecione uma tab...'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 39
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-tab-content',\r\n  template: `\r\n    <p\r\n      [ngClass]=\"{\r\n        TabContent: true,\r\n        contained: variant !== 'outlined',\r\n        outlined: variant === 'outlined'\r\n      }\"\r\n    >\r\n      {{ content || DEFAULT_CONTENT }}\r\n    </p>\r\n  `,\r\n  styles: [\r\n    `\r\n      .TabContent {\r\n        background: #f0f0f0;\r\n        border: 1px solid #aaaaaa;\r\n        box-sizing: border-box;\r\n        border-radius: 10px;\r\n        min-height: 130px;\r\n        padding: 24px;\r\n        font-style: normal;\r\n        font-weight: 400;\r\n        font-size: 20px;\r\n        line-height: 24px;\r\n      }\r\n\r\n      .TabContent.outlined {\r\n        background: transparent;\r\n        border: 1px solid #aaaaaa;\r\n      }\r\n    `,\r\n  ],\r\n})\r\nexport class TabContentComponent {\r\n  DEFAULT_CONTENT = 'Selecione uma tab...';\r\n\r\n  @Input() content?: string = ''; // enunciado da questão\r\n  @Input() variant?: 'contained' | 'outlined' = 'contained';\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .TabContent {\n        background: #f0f0f0;\n        border: 1px solid #aaaaaa;\n        box-sizing: border-box;\n        border-radius: 10px;\n        min-height: 130px;\n        padding: 24px;\n        font-style: normal;\n        font-weight: 400;\n        font-size: 20px;\n        line-height: 24px;\n      }\n\n      .TabContent.outlined {\n        background: transparent;\n        border: 1px solid #aaaaaa;\n      }\n    \n"
+        },
+        {
+            "name": "TabHeaderComponent",
+            "id": "component-TabHeaderComponent-821d61e1e93e5f92da17ed8d216ef0e6d75104f1755fa7dc926de72a8e2b878049c311fca2ce52d5f1f73f9b55a64727e0909fd9d56a17a668d2ad2ff3ffa473",
+            "file": "src/app/components/tab-header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tab-header",
+            "styleUrls": [],
+            "styles": [
+                "\n      .TabHeader {\n        background: #cccccc;\n        border: 1px solid #777777;\n        box-sizing: border-box;\n        border-radius: 3px;\n        padding: 4px 24px;\n        font-style: normal;\n        font-weight: 400;\n        font-size: 16px;\n        line-height: 19px;\n        display: flex;\n        align-items: center;\n        text-align: center;\n        cursor: pointer;\n      }\n      .TabHeader.selected {\n        background: #aaaaaa;\n        font-weight: 700;\n      }\n      .TabHeader.outlined {\n        background: transparent;\n        border: 1px solid #777777;\n      }\n\n      .TabHeader.outlined.selected {\n        background: transparent;\n        border-width: 2px;\n      }\n    "
+            ],
+            "template": "<button\n  type=\"button\"\n  [ngClass]=\"{\n    TabHeader: true,\n    contained: variant !== 'outlined',\n    outlined: variant === 'outlined',\n    selected\n  }\"\n  (click)=\"select(title)\"\n>\n  {{ title }}\n</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "selected",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 54,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 53,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'contained'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 55,
+                    "type": "\"contained\" | \"outlined\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onSelection",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 57,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "select",
+                    "args": [
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 59,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-tab-header',\r\n  template: `\r\n    <button\r\n      type=\"button\"\r\n      [ngClass]=\"{\r\n        TabHeader: true,\r\n        contained: variant !== 'outlined',\r\n        outlined: variant === 'outlined',\r\n        selected\r\n      }\"\r\n      (click)=\"select(title)\"\r\n    >\r\n      {{ title }}\r\n    </button>\r\n  `,\r\n  styles: [\r\n    `\r\n      .TabHeader {\r\n        background: #cccccc;\r\n        border: 1px solid #777777;\r\n        box-sizing: border-box;\r\n        border-radius: 3px;\r\n        padding: 4px 24px;\r\n        font-style: normal;\r\n        font-weight: 400;\r\n        font-size: 16px;\r\n        line-height: 19px;\r\n        display: flex;\r\n        align-items: center;\r\n        text-align: center;\r\n        cursor: pointer;\r\n      }\r\n      .TabHeader.selected {\r\n        background: #aaaaaa;\r\n        font-weight: 700;\r\n      }\r\n      .TabHeader.outlined {\r\n        background: transparent;\r\n        border: 1px solid #777777;\r\n      }\r\n\r\n      .TabHeader.outlined.selected {\r\n        background: transparent;\r\n        border-width: 2px;\r\n      }\r\n    `,\r\n  ],\r\n})\r\nexport class TabHeaderComponent {\r\n  @Input() title?: string = '';\r\n  @Input() selected?: boolean = false;\r\n  @Input() variant?: 'contained' | 'outlined' = 'contained';\r\n\r\n  @Output() onSelection = new EventEmitter<string>();\r\n\r\n  select(title?: string) {\r\n    this.onSelection.emit(title);\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .TabHeader {\n        background: #cccccc;\n        border: 1px solid #777777;\n        box-sizing: border-box;\n        border-radius: 3px;\n        padding: 4px 24px;\n        font-style: normal;\n        font-weight: 400;\n        font-size: 16px;\n        line-height: 19px;\n        display: flex;\n        align-items: center;\n        text-align: center;\n        cursor: pointer;\n      }\n      .TabHeader.selected {\n        background: #aaaaaa;\n        font-weight: 700;\n      }\n      .TabHeader.outlined {\n        background: transparent;\n        border: 1px solid #777777;\n      }\n\n      .TabHeader.outlined.selected {\n        background: transparent;\n        border-width: 2px;\n      }\n    \n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-e6b9ea03cfc5bb00c5f675d87c0182d950fe78f05002619f789a0547b5eb97227aca05606632a8b076ea208df23e6a8b27b5e4e99ac4c6594d5be99500e3a381",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { BrowserModule } from \"@angular/platform-browser\";\n\nimport { AppComponent } from \"./app.component\";\nimport { ContainerComponent } from \"./components/container.component\";\nimport { TabHeaderComponent } from \"./components/tab-header.component\";\nimport { TabContentComponent } from \"./components/tab-content.component\";\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    ContainerComponent,\n    TabHeaderComponent,\n    TabContentComponent\n  ],\n  imports: [BrowserModule],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "ContainerComponent"
+                        },
+                        {
+                            "name": "TabContentComponent"
+                        },
+                        {
+                            "name": "TabHeaderComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Contained",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/TabContent.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Contained",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/TabHeader.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Container.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "Outlined",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/TabContent.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Outlined",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/TabHeader.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Container.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ContainerComponent>",
+                "defaultValue": "(args: ContainerComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/TabContent.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TabContentComponent>",
+                "defaultValue": "(args: TabContentComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/TabHeader.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<TabHeaderComponent>",
+                "defaultValue": "(args: TabHeaderComponent) => ({\n  props: args,\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Tab",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/components/container.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 181
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/stories/TabContent.stories.ts": [
+                {
+                    "name": "Contained",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/TabContent.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Outlined",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/TabContent.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/TabContent.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TabContentComponent>",
+                    "defaultValue": "(args: TabContentComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/stories/TabHeader.stories.ts": [
+                {
+                    "name": "Contained",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/TabHeader.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Outlined",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/TabHeader.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/TabHeader.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<TabHeaderComponent>",
+                    "defaultValue": "(args: TabHeaderComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "src/stories/Container.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Container.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Container.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ContainerComponent>",
+                    "defaultValue": "(args: ContainerComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/components/container.component.ts": [
+                {
+                    "name": "Tab",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/components/container.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 181
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/container.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ContainerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/tab-content.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabContentComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/tab-header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabHeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Container.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Container.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/TabContent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Contained",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/TabContent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outlined",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/TabContent.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/TabHeader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Contained",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/TabHeader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outlined",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/TabHeader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
