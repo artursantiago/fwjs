@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  gap: 54px;
+}
+
+.BoxTabs {
+  margin-left: auto;
+}
+
+.BoxContent {
+  margin-right: auto;
+}
